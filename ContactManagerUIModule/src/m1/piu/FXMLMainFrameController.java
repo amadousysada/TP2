@@ -21,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.netbeans.api.progress.ProgressHandle;
+import org.netbeans.api.progress.ProgressHandleFactory;
 import org.openide.util.RequestProcessor;
 
 /**
@@ -63,7 +64,7 @@ public class FXMLMainFrameController implements Initializable {
     private void save() {
         
          Runnable myRunnable = () -> {
-             ProgressHandle myProgressHandle = ProgressHandle.createHandle("Please wait....");
+             ProgressHandle myProgressHandle = ProgressHandleFactory.createHandle("Please wait....");
              myProgressHandle.start();
              //DO TASK HERE
              myProgressHandle.progress("Doing task...");

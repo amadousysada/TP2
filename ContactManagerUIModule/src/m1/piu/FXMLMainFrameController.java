@@ -20,6 +20,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.netbeans.api.progress.ProgressHandle;
+import org.openide.util.RequestProcessor;
 
 /**
  * FXML Controller class
@@ -55,6 +57,19 @@ public class FXMLMainFrameController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(FXMLMainFrameController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    @FXML
+    private void save() {
+        
+         Runnable myRunnable = () -> {
+             ProgressHandle myProgressHandle = ProgressHandle.createHandle("Please wait....");
+             myProgressHandle.start();
+             //DO TASK HERE
+             myProgressHandle.progress("Doing task...");
+             myProgressHandle.finish();
+         };
+            RequestProcessor.Task myTask = RequestProcessor.getDefault().post(myRunnable);
     }
     
 }

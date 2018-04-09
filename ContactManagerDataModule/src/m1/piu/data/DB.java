@@ -18,8 +18,8 @@ public class DB
     	AddressBook a2 = new AddressBook("CarnetWork","WorkContact");
     	addressBookData.add(a1);
     	addressBookData.add(a2);
-    	Contact p1 = new Contact("Mr","Poulet");
-    	Contact p2 = new Contact("Me","Poisson");
+    	Contact p1 = new Contact("Mr","Poulet","  Farci",10,"pouletfarci@crous.fr","0725156428","CROUS","Agroparc");
+    	Contact p2 = new Contact("Mme","Poisson","   Fumée",20,"poissonfumee@crous.fr","0795856750","CROUS","Agroparc");
     	contactData.add(p1);
     	contactData.add(p2);
    	 
@@ -39,7 +39,7 @@ public class DB
     	return contactData;
    	 
 	}
-	public static HashMap<Contact, String> getContacts(AddressBook ab)
+	public static HashMap<String, Contact> getContacts(AddressBook ab)
 	{
     	return  ab.getAdressBook();
 	}

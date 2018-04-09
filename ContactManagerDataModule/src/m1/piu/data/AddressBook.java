@@ -17,7 +17,7 @@ public class AddressBook {
     
 	private String type;
     
-	private static  HashMap<Contact, String> hm = new HashMap<Contact, String>();
+	private static  HashMap< String, Contact> hm = new HashMap<String, Contact>();
     
 	public AddressBook(String nom,String type)
 	{
@@ -25,16 +25,24 @@ public class AddressBook {
    	 
     	this.type = type;
 	}
+        
+        public AddressBook(String nom)
+	{
+    	this.nom = nom;
+	}
     
 	public void setContact(Contact c,String x)
 	{
-    	hm.put(c,x);
+    	hm.put(x,c);
 	}   	 
-	public HashMap<Contact, String> getAdressBook()
+	public HashMap<String,Contact> getAdressBook()
 	{
     	return hm;
 	}
    
-    
+        public String toString()
+        {
+            return nom;
+        }
 }
 

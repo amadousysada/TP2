@@ -15,15 +15,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<SplitPane dividerPositions="0.36771844660194175" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1353.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.36771844660194175" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1353.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="m1.piu.FXMLMainPanelController">
    <items>
       <BorderPane prefHeight="398.0" prefWidth="248.0">
          <bottom>
             <Region maxHeight="10.0" minWidth="10.0" prefHeight="1.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
          </bottom>
          <center>
-            <ListView prefHeight="682.0" prefWidth="250.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="listAdressBook" prefHeight="682.0" prefWidth="250.0" BorderPane.alignment="CENTER" />
          </center>
          <top>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adress Books" wrappingWidth="299.7294921875" BorderPane.alignment="TOP_LEFT">
@@ -39,7 +38,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <TableView layoutX="-11.0" layoutY="-20.0" prefHeight="194.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tableview" layoutX="-11.0" layoutY="-20.0" prefHeight="194.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn prefWidth="94.0" text="Nom" />
                             <TableColumn prefWidth="94.0" text="Prénom" />
@@ -98,7 +97,10 @@
                                           </Button>
                                        </right>
                                        <top>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="157.7294921875" BorderPane.alignment="TOP_LEFT" />
+                                          <Text fx:id="address" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="157.7294921875" BorderPane.alignment="TOP_LEFT">
+                                             <BorderPane.margin>
+                                                <Insets top="25.0" />
+                                             </BorderPane.margin></Text>
                                        </top>
                                     </BorderPane>
                                  </children>
@@ -126,9 +128,10 @@
                                           <Text layoutX="9.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name : " wrappingWidth="155.7294921875" />
                                           <Text layoutX="10.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age : " wrappingWidth="155.7294921875" />
                                           <Text layoutX="10.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email : " wrappingWidth="155.7294921875" />
-                                          <Text layoutX="67.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                          <Text layoutX="67.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                          <Text layoutX="68.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="name" layoutX="67.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="age" layoutX="67.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="email" layoutX="68.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="prenom" layoutX="105.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                                        </children>
                                     </Pane>
                                     <Pane prefHeight="19.0" prefWidth="298.0" style="-fx-background-color: #858687; -fx-border-color: black;">
@@ -146,8 +149,8 @@
                                        <children>
                                           <Text layoutX="15.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile : " wrappingWidth="155.7294921875" />
                                           <Text layoutX="15.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Office :" wrappingWidth="155.7294921875" />
-                                          <Text layoutX="79.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                          <Text layoutX="79.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="mobile" layoutX="79.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="office" layoutX="79.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                                        </children>
                                     </Pane>
                                  </children>

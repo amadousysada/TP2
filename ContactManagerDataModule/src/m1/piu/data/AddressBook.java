@@ -13,11 +13,11 @@ import java.util.HashMap;
  */
 public class AddressBook {
     
-	private String nom;
+	private final String nom;
     
 	private String type;
     
-	private static  HashMap< String, Contact> hm = new HashMap<String, Contact>();
+	private final HashMap< String, Contact> hm = new HashMap<>();
     
 	public AddressBook(String nom,String type)
 	{
@@ -33,11 +33,11 @@ public class AddressBook {
     
 	public void setContact(Contact c,String x)
 	{
-    	hm.put(x,c);
+            hm.put(x,c);
 	}   	 
 	public HashMap<String,Contact> getAdressBook()
 	{
-    	return hm;
+            return hm;
 	}
    
         public String toString()

@@ -5,15 +5,20 @@
  */
 package m1.piu;
 
-import static java.lang.System.console;
 import java.net.URL;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import m1.piu.data.*;
 
@@ -25,6 +30,8 @@ import m1.piu.data.*;
 public class FXMLMainPanelController implements Initializable {
     @FXML
     private ListView listAdressBook;
+    @FXML
+    private TableView tableview;
     @FXML
     private Text name;
     @FXML
@@ -44,37 +51,73 @@ public class FXMLMainPanelController implements Initializable {
                 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-      DB  x = new DB();
-      listAdressBook.setItems(DB.getAdressBooks());   
-      listAdressBook.getSelectionModel().selectedItemProperty().addListener((ObservableValue observable, Object oldValue, Object newValue) -> {
-      //AddressBook ab = new AddressBook(newValue.toString());
-      Contact s = null;
-       for (AddressBook num :  DB.getAdressBooks()) { 		      
-           if(num.toString().compareTo(newValue.toString())==0)
-           {
-               for (String key :  num.getAdressBook().keySet()) {
-			
-			  s=num.getAdressBook().get(key); 
-                          name.setText(s.getNom());
-                          prenom.setText(s.getPrenom());
-                          age.setText(String.valueOf(s.getAge()));
-                          email.setText(s.getEmail());
-                          mobile.setText(s.getMobile());
-                          office.setText(s.getOffice());
-                          address.setText(s.getAddress());
-		}
-       
-           }
-      }
+        DB  x = new DB();
+        listAdressBook.setItems(DB.getAdressBooks());   
+        listAdressBook.getSelectionModel().selectedItemProperty().addListener((ObservableValue observable, Object oldValue, Object newValue) -> {
+        clear();
+        AddressBook  a= (AddressBook) newValue;
+          
+        
+        ObservableList<Contact> data=FXCollections.observableArrayList();
+            
+        HashMap<String, Contact> h= DB.getContacts(a);
+        for (Map.Entry<String, Contact> entry : h.entrySet()) {
+            String key = entry.getKey();
+            Contact ct = entry.getValue();
+            
+            data.add(ct);
+            
+                
+        }
+        System.out.println(data);
+        
+        ((TableColumn)tableview.getColumns().get(0)).setCellValueFactory(new PropertyValueFactory<>("nom"));
+        ((TableColumn)tableview.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        ((TableColumn)tableview.getColumns().get(2)).setCellValueFactory(new PropertyValueFactory<>("email"));
+        tableview.setItems(data);
+        
       
     
       
       });
+        
+      tableview.getSelectionModel().selectedItemProperty().addListener(tabviewListener());
       
-    }    
+    }
+    
+    public ChangeListener tabviewListener(){
+        
+        ChangeListener cl= (ChangeListener) (ObservableValue observable, Object oldValue, Object newValue) -> {
+            Contact s = (Contact)newValue;
+            if(s!=null){
+                name.setText(s.getNom());
+                prenom.setText(s.getPrenom());
+                age.setText(String.valueOf(s.getAge()));
+                email.setText(s.getEmail());
+                mobile.setText(s.getMobile());
+                office.setText(s.getOffice());
+                address.setText(s.getAddress());
+            }
+        };
+        
+        return cl;
+    
+    }
+    
+    public void clear(){
+        name.setText("");
+        prenom.setText("");
+        age.setText("");
+        email.setText("");
+        mobile.setText("");
+        office.setText("");
+        address.setText("");
+    }
     
 }

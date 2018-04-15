@@ -33,7 +33,7 @@ import org.openide.util.NbBundle.Messages;
         //iconBase="SET/PATH/TO/ICON/HERE", 
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
-@TopComponent.Registration(mode = "explorer", openAtStartup = true)
+@TopComponent.Registration(mode = "editor", openAtStartup = true)
 @ActionID(category = "Window", id = "m1.piu.Question4TopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
@@ -50,8 +50,8 @@ public final class Question4TopComponent extends TopComponent {
     private static JFXPanel fxPanel;
     public Question4TopComponent() {
         initComponents();
-        setName(Bundle.CTL_ToolBarTopComponent());
-        setToolTipText(Bundle.HINT_ToolBarTopComponent());
+        setName("Question4");
+        setToolTipText("Question4");
         setLayout(new BorderLayout());
         init();
 

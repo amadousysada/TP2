@@ -37,6 +37,12 @@ public class FXMLMainPanelController implements Initializable {
     @FXML
     private Text prenom;
     @FXML
+    private Text named;
+    @FXML
+    private Text prenomd;
+    @FXML
+    private Text genre;
+    @FXML
     private Text age;
     @FXML
     private Text email;
@@ -98,6 +104,9 @@ public class FXMLMainPanelController implements Initializable {
             if(s!=null){
                 name.setText(s.getNom());
                 prenom.setText(s.getPrenom());
+                named.setText(s.getNom());
+                prenomd.setText(s.getPrenom());
+                genre.setText(s.getGenre());
                 age.setText(String.valueOf(s.getAge()));
                 email.setText(s.getEmail());
                 mobile.setText(s.getMobile());
@@ -113,6 +122,9 @@ public class FXMLMainPanelController implements Initializable {
     public void clear(){
         name.setText("");
         prenom.setText("");
+        named.setText("");
+        prenomd.setText("");
+        genre.setText("");
         age.setText("");
         email.setText("");
         mobile.setText("");

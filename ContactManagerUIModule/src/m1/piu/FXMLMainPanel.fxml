@@ -49,9 +49,9 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="170.0" prefWidth="293.0">
                      <children>
-                        <BorderPane layoutX="88.0" layoutY="-3.0" prefHeight="194.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <BorderPane prefHeight="194.0" prefWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <top>
-                              <VBox prefHeight="25.0" prefWidth="288.0" BorderPane.alignment="CENTER">
+                              <VBox prefHeight="11.0" prefWidth="849.0" BorderPane.alignment="CENTER">
                                  <children>
                                     <HBox prefHeight="14.0" prefWidth="512.0">
                                        <children>
@@ -60,14 +60,19 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </Text>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                          <Text fx:id="named" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Text fx:id="prenomd" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
                                           </Text>
                                        </children>
                                     </HBox>
-                                    <Separator prefHeight="5.0" prefWidth="512.0" style="-fx-background-color: #a9a9a9;" />
+                                    <Separator prefHeight="8.0" prefWidth="849.0" style="-fx-background-color: #a9a9a9;" />
                                  </children>
                                  <BorderPane.margin>
                                     <Insets />
@@ -128,10 +133,11 @@
                                           <Text layoutX="9.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name : " wrappingWidth="155.7294921875" />
                                           <Text layoutX="10.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age : " wrappingWidth="155.7294921875" />
                                           <Text layoutX="10.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email : " wrappingWidth="155.7294921875" />
-                                          <Text fx:id="name" layoutX="67.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="name" layoutX="99.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                                           <Text fx:id="age" layoutX="67.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                                           <Text fx:id="email" layoutX="68.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-                                          <Text fx:id="prenom" layoutX="105.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="prenom" layoutX="139.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                                          <Text fx:id="genre" layoutX="67.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                                        </children>
                                     </Pane>
                                     <Pane prefHeight="19.0" prefWidth="298.0" style="-fx-background-color: #858687; -fx-border-color: black;">
